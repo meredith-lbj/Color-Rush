@@ -9,11 +9,15 @@ public class Camera_player : MonoBehaviour
 
     void Start()
     {
-        camera_offset = transform.position - Player.transform.position;
+        if (Player != null) {
+            camera_offset = transform.position - Player.transform.position;
+        }
     }
 
     void Update()
     {
-        transform.position = Player.transform.position + camera_offset;
+        if (Player != null) {
+            transform.position = Player.transform.position + camera_offset;
+        }
     }
 }
