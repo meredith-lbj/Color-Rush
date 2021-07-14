@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class Player_collisions : MonoBehaviour
 {
+    public Text scoreText;
+    uint score = 0;
     Material player_mat;
     Color yellow_c = new Color(1.0f, 1.0f, 0.0f, 1.0f);
 
     private void Start()
     {
         player_mat = GetComponent<Renderer>().material;
+    }
+
+    void Update()
+    {
+        scoreText.text = score.ToString();
     }
 
     void OnCollisionEnter(Collision obs)
@@ -24,9 +32,11 @@ public class Player_collisions : MonoBehaviour
         }
         if (obs.gameObject.tag == "Points") {
             if (obs.gameObject.GetComponent<Renderer>().material.color == player_mat.color) {
+                score++;
                 Destroy(obs.gameObject);
             }
             else if (complex_color(obs, player_mat)) {
+                score += 4;
             }
             else {
             }

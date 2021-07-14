@@ -16,9 +16,17 @@ public class player_movement : MonoBehaviour
     void Update()
     {
         float dir_x = Input.GetAxisRaw("Horizontal");
-        float dir_y = Input.GetAxisRaw("Vertical") + 0.5f;
+        float dir_y = Input.GetAxisRaw("Vertical");
 
-        Player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        rb.velocity = new Vector3(dir_x, rb.velocity.y, dir_y) * speed * Time.fixedDeltaTime; 
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
+            //Debug.Log("fleche");
+            //A réfléchir
+        }
+        else {
+            dir_y = dir_y + 0.5f;
+            Player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            rb.velocity = new Vector3(dir_x, rb.velocity.y, dir_y) * speed * Time.fixedDeltaTime;
+        }
+         
     }
 }
