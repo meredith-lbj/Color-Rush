@@ -24,14 +24,11 @@ public class Player_collisions : MonoBehaviour
         }
         if (obs.gameObject.tag == "Points") {
             if (obs.gameObject.GetComponent<Renderer>().material.color == player_mat.color) {
-                //Debug.Log("Same color");
                 Destroy(obs.gameObject);
             }
             else if (complex_color(obs, player_mat)) {
-                //Debug.Log("Complex color");
             }
             else {
-                //Debug.Log("Different color");
             }
         }
     }
