@@ -19,8 +19,7 @@ public class player_movement : MonoBehaviour
         float dir_y = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
-            //Debug.Log("fleche");
-            //A réfléchir
+            //A modifier
         }
         else {
             dir_y = dir_y + 0.5f;

@@ -21,13 +21,20 @@ public class Player_collisions : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    void OnTriggerEnter(Collider info)
+    {
+        if (info.gameObject.tag == "End") {
+            FindObjectOfType<GameManager>().EndGame();
+        }
+    }
+
     void OnCollisionEnter(Collision obs)
     {
         if (obs.gameObject.tag == "Obstacles") {
             //Destroy(gameObject);
             //Animation des particules
             Debug.Log("Over");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            FindObjectOfType<GameManager>().EndGame();
             //Application.Quit();
         }
         if (obs.gameObject.tag == "Points") {
@@ -39,6 +46,11 @@ public class Player_collisions : MonoBehaviour
                 score += 4;
             }
             else {
+                //Destroy(gameObject);
+                //Animation des particules
+                Debug.Log("Over");
+                FindObjectOfType<GameManager>().EndGame();
+                //Application.Quit();
             }
         }
     }
