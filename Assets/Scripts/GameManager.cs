@@ -9,12 +9,11 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        Debug.Log("The End");
         Invoke("Restart", restart_delay);
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

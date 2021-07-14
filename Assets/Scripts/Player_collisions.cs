@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class Player_collisions : MonoBehaviour
@@ -32,10 +33,8 @@ public class Player_collisions : MonoBehaviour
     {
         if (obs.gameObject.tag == "Obstacles") {
             //Destroy(gameObject);
-            //Animation des particules
-            Debug.Log("Over");
-            FindObjectOfType<GameManager>().EndGame();
-            //Application.Quit();
+            //Animation avec particules
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
         if (obs.gameObject.tag == "Points") {
             if (obs.gameObject.GetComponent<Renderer>().material.color == player_mat.color) {
@@ -48,9 +47,7 @@ public class Player_collisions : MonoBehaviour
             else {
                 //Destroy(gameObject);
                 //Animation des particules
-                Debug.Log("Over");
-                FindObjectOfType<GameManager>().EndGame();
-                //Application.Quit();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
             }
         }
     }
