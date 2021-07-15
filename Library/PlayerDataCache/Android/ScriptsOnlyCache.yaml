@@ -992,4 +992,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/level_1.unity
   - Assets/Scenes/Winner_End.unity
   - Assets/Scenes/GameOver.unity
-  playerPath: /home/meredithl/Desktop/color_rush.apk
+  playerPath: /home/meredithl/Desktop/ColorRush.apk
